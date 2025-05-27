@@ -1,0 +1,830 @@
+<<<<<<< HEAD
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #121212;
+  padding: 12px;
+  padding-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-logo img {
+  display: block;
+  margin: 0 auto;
+}
+
+.nav-you i,
+.nav-you p {
+  color: #b7beb6;
+  font-size: 20px;
+}
+
+.nav-you {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.nav-history,
+.nav-playlist {
+  background-color: #242424;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.nav-history button,
+.nav-playlist button {
+  background-color: #c4acac;
+  color: #000;
+  border: none;
+  padding: 6px 10px;
+  margin-top: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.nav-playlist p,
+.nav-history p {
+  font-size: 10px;
+}
+
+.nav-footer {
+  margin-top: auto;
+}
+
+.nav-footer a {
+  color: #a7a7a7;
+  text-decoration: none;
+  font-size: 12px;
+  margin-right: 12px;
+  margin-bottom: 8px;
+}
+
+.nav-lang-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 8px 12px;
+  margin: 16px auto 0 auto;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+main {
+  flex-grow: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #242424;
+  padding: 8px 16px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.search-bar input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  width: 100%;
+  margin-left: 20px;
+  outline: none;
+}
+
+/* CORRIGIDO AQUI 👇 */
+.drills-grid,
+.posicao-grid,
+.raspagens-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.drills-card,
+.posicao-card,
+.raspagem-card {
+  background-color: #181818;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  position: relative;
+}
+.drills-card h2,
+.posicao-card h2,
+.raspagem-card h2 {
+  color: #d9d0e1c1;
+  font-size: 16px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  bottom: 10px;
+  left: 10px;
+  z-index: 2;
+}
+
+.drills-card img,
+.posicao-card img,
+.raspagem-card img {
+  width: 100%;
+  max-height: 70%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.drills-card:hover,
+.posicao-card:hover,
+.raspagem-card:hover {
+  box-shadow: 0 0 8px #a01192;
+  border: solid 1px #412e40;
+}
+.drills-card:hover img,
+.posicao-card:hover img,
+.raspagem-card:hover img {
+  scale: 1.1;
+  transition: all 0.2s linear;
+}
+.banner {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(90deg, #af2896, #509bf5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+.banner h2 {
+  font-size: 11px;
+}
+.banner p {
+  font-size: 10px;
+}
+.banner button {
+  border-radius: 20px;
+  color: #000;
+  border: none;
+  padding: 10px 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.botao-cadastro {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  z-index: 1000; /* Para ficar acima de tudo */
+  background: linear-gradient(90deg, #684e63, #509bf5);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s;
+}
+
+.botao-cadastro:hover {
+  opacity: 0.85;
+}
+/* Container dos carrosséis */
+.drills-grid,
+.posicao-grid,
+.raspagens-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 12px;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+
+.drills-grid::-webkit-scrollbar,
+.posicao-grid::-webkit-scrollbar,
+.raspagens-grid::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Edge */
+}
+
+/* Cards agora com largura fixa */
+.drills-card,
+.posicao-card,
+.raspagem-card {
+  flex: 0 0 200px; /* largura fixa para cada card */
+  background-color: #181818;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  position: relative;
+}
+
+/* Posicionar título e hover mantidos */
+.drills-card h2,
+.posicao-card h2,
+.raspagem-card h2 {
+  color: #d8b8b8c1;
+  font-size: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  text-align: center;
+}
+
+.drills-card img,
+.posicao-card img,
+.raspagem-card img {
+  width: 100%;
+  height: 140px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.drills-card:hover,
+.posicao-card:hover,
+.raspagem-card:hover {
+  box-shadow: 0 0 8px #a01192;
+  border: solid 1px #412e40;
+}
+.drills-card:hover img,
+.posicao-card:hover img,
+.raspagem-card:hover img {
+  scale: 1.1;
+  transition: all 0.2s linear;
+}
+
+/* Botões de navegação para carrossel */
+.carousel-wrapper {
+  position: relative;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #132a6f;
+  border: none;
+  color: rgb(0, 0, 0);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+}
+
+.carousel-btn-left {
+  left: -15px;
+}
+
+.carousel-btn-right {
+  right: -15px;
+}
+/* Estilos base (desktop) já definidos */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column; /* Sidebar e main empilhados */
+    height: auto; /* Altura ajustada */
+  }
+
+  .sidebar {
+    width: 100%;
+    padding-bottom: 20px;
+    flex-direction: row; /* Navegação horizontal */
+    overflow-x: auto; /* Para rolar lateralmente */
+    gap: 12px;
+  }
+
+  .nav-footer {
+    display: none; /* Pode esconder ou reorganizar */
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  /* Ajuste dos grids para caber melhor */
+  .drills-grid,
+  .posicao-grid,
+  .raspagens-grid {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  /* Cards fixos, mantém scroll horizontal */
+  .drills-card,
+  .posicao-card,
+  .raspagem-card {
+    flex: 0 0 180px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 10px;
+  }
+
+  .nav-logo img {
+    width: 150px;
+  }
+
+  .nav-you i,
+  .nav-you p {
+    font-size: 16px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  .search-bar {
+    max-width: 100%;
+  }
+
+  /* Cards menores para caber na tela */
+  .drills-card,
+  .posicao-card,
+  .raspagem-card {
+    flex: 0 0 140px;
+  }
+
+  /* Botão cadastro menos intrusivo */
+  .botao-cadastro {
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+=======
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #121212;
+  padding: 12px;
+  padding-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-logo img {
+  display: block;
+  margin: 0 auto;
+}
+
+.nav-you i,
+.nav-you a {
+  color: #b7beb6;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav-you {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.nav-history,
+.nav-playlist {
+  background-color: #242424;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.nav-history button,
+.nav-playlist button {
+  background-color: #c4acac;
+  color: #000;
+  border: none;
+  padding: 6px 10px;
+  margin-top: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.nav-playlist p,
+.nav-history p {
+  font-size: 10px;
+}
+
+.nav-footer {
+  margin-top: auto;
+}
+
+.nav-footer a {
+  color: #a7a7a7;
+  text-decoration: none;
+  font-size: 12px;
+  margin-right: 12px;
+  margin-bottom: 8px;
+}
+
+.nav-lang-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 8px 12px;
+  margin: 16px auto 0 auto;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+main {
+  flex-grow: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #242424;
+  padding: 8px 16px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.search-bar input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  width: 100%;
+  margin-left: 20px;
+  outline: none;
+}
+
+/* CORRIGIDO AQUI 👇 */
+.drills-grid,
+.posicao-grid,
+.raspagens-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.drills-card,
+.posicao-card,
+.raspagem-card {
+  background-color: #181818;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  position: relative;
+}
+.drills-card h2,
+.posicao-card h2,
+.raspagem-card h2 {
+  color: #d9d0e1c1;
+  font-size: 16px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  bottom: 10px;
+  left: 10px;
+  z-index: 2;
+}
+
+.drills-card img,
+.posicao-card img,
+.raspagem-card img {
+  width: 100%;
+  max-height: 70%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.drills-card:hover,
+.posicao-card:hover,
+.raspagem-card:hover {
+  box-shadow: 0 0 8px #a01192;
+  border: solid 1px #412e40;
+}
+.drills-card:hover img,
+.posicao-card:hover img,
+.raspagem-card:hover img {
+  scale: 1.1;
+  transition: all 0.2s linear;
+}
+.banner {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(90deg, #af2896, #509bf5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+.banner h2 {
+  font-size: 11px;
+}
+.banner p {
+  font-size: 10px;
+}
+.banner button {
+  border-radius: 20px;
+  color: #000;
+  border: none;
+  padding: 10px 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.botao-cadastro {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  z-index: 1000; /* Para ficar acima de tudo */
+  background: linear-gradient(90deg, #684e63, #509bf5);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s;
+}
+
+.botao-cadastro:hover {
+  opacity: 0.85;
+}
+/* Container dos carrosséis */
+.drills-grid,
+.posicao-grid,
+.raspagens-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 12px;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+
+.drills-grid::-webkit-scrollbar,
+.posicao-grid::-webkit-scrollbar,
+.raspagens-grid::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Edge */
+}
+
+/* Cards agora com largura fixa */
+.drills-card,
+.posicao-card,
+.raspagem-card {
+  flex: 0 0 200px; /* largura fixa para cada card */
+  background-color: #181818;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  position: relative;
+}
+
+/* Posicionar título e hover mantidos */
+.drills-card h2,
+.posicao-card h2,
+.raspagem-card h2 {
+  color: #d8b8b8c1;
+  font-size: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  text-align: center;
+}
+
+.drills-card img,
+.posicao-card img,
+.raspagem-card img {
+  width: 100%;
+  height: 140px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.drills-card:hover,
+.posicao-card:hover,
+.raspagem-card:hover {
+  box-shadow: 0 0 8px #a01192;
+  border: solid 1px #412e40;
+}
+.drills-card:hover img,
+.posicao-card:hover img,
+.raspagem-card:hover img {
+  scale: 1.1;
+  transition: all 0.2s linear;
+}
+
+/* Botões de navegação para carrossel */
+.carousel-wrapper {
+  position: relative;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #132a6f;
+  border: none;
+  color: rgb(0, 0, 0);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+}
+
+.carousel-btn-left {
+  left: -15px;
+}
+
+.carousel-btn-right {
+  right: -15px;
+}
+/* Estilos base (desktop) já definidos */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column; /* Sidebar e main empilhados */
+    height: auto; /* Altura ajustada */
+  }
+
+  .sidebar {
+    width: 100%;
+    padding-bottom: 20px;
+    flex-direction: row; /* Navegação horizontal */
+    overflow-x: auto; /* Para rolar lateralmente */
+    gap: 12px;
+  }
+
+  .nav-footer {
+    display: none; /* Pode esconder ou reorganizar */
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  /* Ajuste dos grids para caber melhor */
+  .drills-grid,
+  .posicao-grid,
+  .raspagens-grid {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  /* Cards fixos, mantém scroll horizontal */
+  .drills-card,
+  .posicao-card,
+  .raspagem-card {
+    flex: 0 0 180px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 10px;
+  }
+
+  .nav-logo img {
+    width: 150px;
+  }
+
+  .nav-you i,
+  .nav-you p {
+    font-size: 16px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  .search-bar {
+    max-width: 100%;
+  }
+
+  /* Cards menores para caber na tela */
+  .drills-card,
+  .posicao-card,
+  .raspagem-card {
+    flex: 0 0 140px;
+  }
+
+  /* Botão cadastro menos intrusivo */
+  .botao-cadastro {
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+>>>>>>> 6cf1d65 (autualização do Profile)

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil do Usuário</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="perfil">
+        <div class="avatar">
+          <img src="./img/FB_IMG_1732934014530.jpg" alt="Avatar do Usuário" />
+        </div>
+        <div class="dados">
+          <h2>Henrique Oliveira</h2>
+          <p class="email">henrique.oliveira@example.com</p>
+          <p class="membro">Cadastrado desde : 12 de Maio de 2025</p>
+          <div class="acoes">
+            <button class="editar">Editar Perfil</button>
+            <button class="configuracoes">Configurações da Conta</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu">
+        <button onclick="showSection('historico')" class="ativo">
+          Histórico de Aulas
+        </button>
+        <button onclick="showSection('salvos')">Vídeos Salvos</button>
+        <button onclick="showSection('preferencias')">Preferências</button>
+      </div>
+
+      <div id="historico" class="secao">
+        <h3>Histórico de Aulas</h3>
+        <ul>
+          <li>Aula de Jiu-Jitsu - raspagens - Continue assistindo!</li>
+          <li>Aula de Jiu-Jitsu - Drills - Continue assistindo!</li>
+          <li>Aula de Jiu-Jitsu - Finalizações - Continue assistindo!</li>
+        </ul>
+        <p>Nenhuma aula recente? Comece a aprender algo novo hoje!</p>
+      </div>
+
+      <div id="salvos" class="secao oculto">
+        <h3>Vídeos Salvos</h3>
+        <div class="videos">
+          <div class="video">
+            <img
+              src="https://placehold.co/300x180/333333/ffffff?text=Video+1"
+              alt="Vídeo Salvo 1"
+            />
+            <p class="titulo">Técnica de Finalização Avançada</p>
+            <p class="info">Jiu-Jitsu | Duração: 15 min</p>
+          </div>
+          <div class="video">
+            <img
+              src="https://placehold.co/300x180/333333/ffffff?text=Video+2"
+              alt="Vídeo Salvo 2"
+            />
+            <p class="titulo">Treino de Agilidade para Lutas</p>
+            <p class="info">Muay Thai | Duração: 20 min</p>
+          </div>
+          <div class="video">
+            <img
+              src="https://placehold.co/300x180/333333/ffffff?text=Video+3"
+              alt="Vídeo Salvo 3"
+            />
+            <p class="titulo">Defesa Pessoal Urbana</p>
+            <p class="info">Defesa Pessoal | Duração: 10 min</p>
+          </div>
+        </div>
+        <p>Nenhum vídeo salvo? Salve seus favoritos para assistir depois!</p>
+      </div>
+
+      <div id="preferencias" class="secao oculto">
+        <h3>Preferências de Uso</h3>
+        <form>
+          <label for="theme">Tema do Aplicativo:</label>
+          <select id="theme">
+            <option value="dark">Escuro (Padrão)</option>
+            <option value="light">Claro</option>
+          </select>
+
+          <label>
+            <input type="checkbox" id="notifications" checked />
+            Receber atualizações e novidades
+          </label>
+
+          <label for="language">Idioma:</label>
+          <select id="language">
+            <option value="pt-br">Português (Brasil)</option>
+            <option value="en">English</option>
+          </select>
+
+          <button type="submit">Salvar Preferências</button>
+        </form>
+      </div>
+
+      <div id="postagens" class="secao oculto">
+        <h3>Minhas Postagens</h3>
+        <div class="postagem-box">
+          <p>Compartilhe uma imagem para iniciar uma competição de legendas</p>
+          <div class="acoes-postagem">
+            <button>Imagem</button>
+            <button>Enquete</button>
+            <button>Texto</button>
+            <button>Teste</button>
+            <button>Vídeo</button>
+            <button class="postar">Postar</button>
+          </div>
+        </div>
+        <div class="icone">edit_note</div>
+        <p>Publicar postagem</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
